@@ -8,11 +8,11 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
     
-        // verify password and confirmPass to be match
+        // verify password and confirmPassword to be match
         if(trim($password) == trim($confirmPassword)){
+
+            
             // connect database
-            
-            
             $host = "localhost";
             $database = "ecommerce";
             $dbusername = "root";
@@ -34,19 +34,17 @@
 
                 if($stmt->execute()){
                     header("location: /registration.php?success=Registration successful");
-                    exit;
+
                 } else { 
                     header("location: /registration.php?error=Insert Error");
-                    exit;
                 }
 
             } catch (Exception $e){
             echo "Connection Failed: " . $e->getMessage();
             }
             
-    }else {
+    } else {
         header("location: /registration.php?error=Password Mismatch");
-        exit;
     }
 }
 ?>
