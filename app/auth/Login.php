@@ -30,16 +30,21 @@ session_start();
                 $users = $stmt->fetchAll();
                 if($users){
                     if(password_verify($password,$users[0]["password"])){
-                        echo "login successful";
+                        header("location: /index.php?success=Login Successful");
                         $_SESSION["fullname"] = $users[0]["fullname"];
+                        exit;
                     } else { 
-                        echo "password did not match";
+                        header("location: /login.php");
+                        $_SESSION["error"] = "Password not match";
+                        exit;
                     }
                 } else {
-                    echo "user not exist";
+                    header("location: /login.php");
+                    $_SESSION["error"] = "User not found";
+                    exit;
                 }
 
-                $password = password_hash(trim($password), PASSWORD_BCRYPT);
+                 //    $password = password_hash(trim($password), PASSWORD_BCRYPT);
 
 
             } catch (Exception $e){

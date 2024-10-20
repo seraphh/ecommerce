@@ -6,7 +6,7 @@
 
 
     <!-- Shopping Cart -->
-    <div class="container mt-5">
+    <div class="container content my-5">
         <div class="row">
             <!-- Shopping Cart Items -->
             <div class="col-md-8">

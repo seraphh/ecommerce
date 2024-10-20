@@ -28,13 +28,18 @@
                             <?php echo $_SESSION["fullname"]; ?> <!-- Replace with dynamic username -->
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
-                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="dashboard.php">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="logout.html">Logout</a></li>
+                            <li>
+                                <form action="/logout.php" method="POST">
+                                <button class="dropdown-item" href="logout.php">Logout</>
+                                </form>
+                            <?php } ?>
+                            </li>
                         </ul>
                     </li>
-                    <?php } ?>
+                    
                 </ul>
             </div>
         </div>
