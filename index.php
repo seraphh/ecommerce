@@ -1,7 +1,8 @@
     <!-- Header -->
     <?php 
-        session_start();
-        require_once("includes/header.php") 
+    session_start();
+    require_once(__DIR__."/app/config/Directories.php");
+    require_once(ROOT_DIR."includes\header.php");
     ?>
 
     <!-- Navbar -->
@@ -99,7 +100,7 @@
     </div>
 
     <!-- Footer -->
-    <?php require_once("includes/footer.php") ?>
+    <?php require_once(ROOT_DIR."includes/footer.php") ?>
 
 
     <!-- Bootstrap 5 JS Bundle -->
