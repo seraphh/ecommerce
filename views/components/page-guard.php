@@ -9,9 +9,11 @@ if(!isset($_SESSION["username"]) || (!isset($_SESSION["is_admin"]) || $_SESSION[
             <a href="login.html" class="btn btn-primary">Go to Login</a>
         </div>
     </div> 
-</body>
-</html>
+    
+    <!-- Footer -->
+    <?php require_once(ROOT_DIR."includes/footer.php") ?>
 <?php 
 exit;
 } 
+
 ?>

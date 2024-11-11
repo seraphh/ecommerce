@@ -1,7 +1,15 @@
     <!-- Header -->
     <?php 
+        session_start();
         require_once(__DIR__."/app/config/Directories.php");
         require_once(ROOT_DIR."includes\header.php");
+
+        if(isset($_SESSION["error"]))
+        {
+            $messErr = $_SESSION["error"];
+            unset($_SESSION["error"]);
+        }
+        
     ?>
 
     <!-- Navbar -->
@@ -17,13 +25,6 @@
                         <h4>Login to Your Account</h4>
                     </div>
                     <div class="card-body">
-
-                        <?php if (isset($_SESSION["success"])){ ?> 
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong><?php echo $_SESSION["success"]; ?></strong>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        <?php   } ?>
                         
                         <?php if (isset($messErr)){ ?> 
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
