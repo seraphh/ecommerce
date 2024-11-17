@@ -52,7 +52,9 @@
     <!-- Product Cards Container -->
     <div class="container content mt-3">
         <div class="row">
-
+        
+            <!-- Sample Products -->
+            <!-- Loop through products and generate cards dynamically -->
             <?php
             foreach($productList as $product){
                 include(ROOT_DIR.'views/components/product-card.php');

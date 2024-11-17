@@ -2,6 +2,7 @@
     <?php 
     session_start();
     require_once(__DIR__."/app/config/Directories.php");
+    include(ROOT_DIR."app/product/get_products.php");
     require_once(ROOT_DIR."includes\header.php");
     ?>
 
@@ -55,47 +56,12 @@
     <!-- Featured Products Section -->
     <div class="container content my-5" id="products">
         <h2 class="text-center mb-4">Featured Products</h2>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="https://via.placeholder.com/250x250" class="card-img-top" alt="Product 1">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Product 1</h5>
-                        <p class="card-text">$49.99</p>
-                        <a href="#" class="btn btn-success">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="https://via.placeholder.com/250x250" class="card-img-top" alt="Product 2">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Product 2</h5>
-                        <p class="card-text">$79.99</p>
-                        <a href="#" class="btn btn-success">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="https://via.placeholder.com/250x250" class="card-img-top" alt="Product 3">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Product 3</h5>
-                        <p class="card-text">$29.99</p>
-                        <a href="#" class="btn btn-success">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="https://via.placeholder.com/250x250" class="card-img-top" alt="Product 4">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Product 4</h5>
-                        <p class="card-text">$99.99</p>
-                        <a href="#" class="btn btn-success">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
+        <div class="row gy-5">
+            <?php
+            foreach($productList as $product){
+                include(ROOT_DIR.'views/components/product-cart.php');
+            }
+            ?>
         </div>
     </div>
 
