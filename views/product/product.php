@@ -9,10 +9,10 @@
     //this variable will hold product data from db
     $product = [];
     $id = @$_GET['id'];
-    $category = ["1" => "Electronics", "2" => "Fashion", "3" => "Home Appliances"];
+    $category = ["1" => "Case", "2" => "CPU", "3" => "GPU", "4" => 
+    "Motherboard", "5" => "PSU", "6" => "RAM", "7" => "Storage"];
 
-    // $category = ["1" => "Case", "2" => "CPU", "3" => "GPU", "4" => 
-    // "Motherboard", "5" => "PSU", "6" => "RAM", "7" => "Storage"];
+    
 
     try {
 
@@ -73,8 +73,7 @@
                         <input type="hidden" class=form-control id="id" name="id" value="<?php echo $product["id"]; ?>">
                         <h2><?php echo $product["product_name"] ?></h2>
                         <div class="mb-3"><span class="badge text-bg-info"><?php echo $category[$product["category_id"]];?></span></div>
-                        <?php echo $product["category_id"] ?>
-                        <p class="lead text-warning fw-bold">Php 100.00 </p>
+                        <p class="lead text-warning fw-bold">PHP <?php echo number_format($product["unit_price"],2) ?></p>
                         <p>Product Description</p>
 
                         <!-- Quantity Selection -->
@@ -90,7 +89,8 @@
 
                         <!-- Add to Cart Button -->
                         <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary btn-lg">Add to Cart</button>
+                            <button type="submit" class="btn btn-primary btn-lg"  <?php echo ($product["stocks"] <= 0 ? "disabled" : ""); ?>> 
+                                <?php echo $product["stocks"] <= 0 ? "Out of Stock" : "Add to cart"; ?></button>
                         </div>
                     </form>
                 </div>
