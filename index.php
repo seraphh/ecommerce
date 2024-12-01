@@ -1,9 +1,11 @@
     <!-- Header -->
     <?php 
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     session_start();
     require_once(__DIR__."/app/config/Directories.php");
     include(ROOT_DIR."app/product/get_products.php");
-    require_once(ROOT_DIR."includes\header.php");
+    require_once(ROOT_DIR."includes/header.php");
     ?>
 
     <!-- Navbar -->

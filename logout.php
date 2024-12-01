@@ -1,6 +1,6 @@
     <?php 
         require_once(__DIR__."/app/config/Directories.php");
-        require_once(ROOT_DIR."includes\header.php");
+        require_once(ROOT_DIR."includes/header.php");
     ?>
 
     <!-- Navbar -->

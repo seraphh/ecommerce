@@ -2,10 +2,10 @@
 session_start();
 
 require_once(__DIR__."/../config/Directories.php");
-include("..\config/DatabaseConnect.php");
+include("../config/DatabaseConnect.php");
 
-    $db = new DatabaseConnect();
-    $conn = $db->connectDB();
+$db = new DatabaseConnect();
+$conn = $db->connectDB();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $productId= $_POST["id"];

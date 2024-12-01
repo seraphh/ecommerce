@@ -15,9 +15,9 @@ session_start();
             
             // connect database
             $host = "localhost";
-            $database = "ecommerce";
-            $dbusername = "root";
-            $dbpassword = "";
+            $database = "ecommerce_zmonteras";
+            $dbusername = "zmonteras";
+            $dbpassword = "Zm0nt3ras_2024";
     // insert record
     // validate confirmpassword
 

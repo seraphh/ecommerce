@@ -91,10 +91,13 @@
                             <label for="category" class="form-label">Category</label>
                             <select id="category" class="form-select" name="category">
                                 <option selected>Choose a category</option>
-                                <option value="1" <?php echo ($product["category_id"] == "1" ? "selected" : ""); ?> >Electronics</option>
-                                <option value="2" <?php echo ($product["category_id"] == "2" ? "selected" : ""); ?> >Fashion</option>
-                                <option value="3" <?php echo ($product["category_id"] == "3" ? "selected" : ""); ?> >Home Appliances</option>
-                                <!-- Add more categories as needed -->
+                                <option value="1" <?php echo ($product["category_id"] == "1" ? "selected" : ""); ?> >Case</option>
+                                <option value="2" <?php echo ($product["category_id"] == "2" ? "selected" : ""); ?> >CPU</option>
+                                <option value="3" <?php echo ($product["category_id"] == "3" ? "selected" : ""); ?> >GPU</option>
+                                <option value="4" <?php echo ($product["category_id"] == "4" ? "selected" : ""); ?> >Motherboard</option>
+                                <option value="5" <?php echo ($product["category_id"] == "5" ? "selected" : ""); ?> >PSU</option>
+                                <option value="6" <?php echo ($product["category_id"] == "6" ? "selected" : ""); ?> >RAM</option>
+                                <option value="7" <?php echo ($product["category_id"] == "7" ? "selected" : ""); ?> >Storage</option>
                             </select>
                         </div>
                     </div>

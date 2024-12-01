@@ -1,5 +1,7 @@
 <?php 
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
 
 include(ROOT_DIR."app/config/DatabaseConnect.php");
@@ -11,6 +13,15 @@ $carts = [];
 $userId = $_SESSION["user_id"];
 $subtotal = 0;
 $purchase_total = 0;
+
+if (!isset($_SESSION['user_id'])) {
+
+    $_SESSION['error'] = "Please log in first to view your cart";
+
+    header("Location: login.php");
+    exit();
+}
+
 try {
     $sql = "SELECT carts.id, products.product_name, carts.quantity, carts.unit_price, carts.total_price"
         . " FROM carts "

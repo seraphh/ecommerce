@@ -74,7 +74,7 @@
                         <h2><?php echo $product["product_name"] ?></h2>
                         <div class="mb-3"><span class="badge text-bg-info"><?php echo $category[$product["category_id"]];?></span></div>
                         <p class="lead text-warning fw-bold">PHP <?php echo number_format($product["unit_price"],2) ?></p>
-                        <p>Product Description</p>
+                        <p class="product-description fw-bold"> <?php echo htmlspecialchars($product['product_description']); ?></p>
 
                         <!-- Quantity Selection -->
                         <div class="mb-3">

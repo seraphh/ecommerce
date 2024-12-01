@@ -5,7 +5,7 @@ if(!isset($_SESSION)){
 }
 
 require_once(__DIR__."/../config/Directories.php"); //to handle folder specific path
-include("..\config\DatabaseConnect.php"); //to access database connection
+include("../config/DatabaseConnect.php"); //to access database connection
 
 $db = new DatabaseConnect(); //make a new database instance
 
@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             :p_total_price, NOW(), NOW())";
         $stmt = $conn->prepare($sql);
 
-        $data = [':p_product_name'        => $productName,
+        $data = [':p_product_name'       => $productName,
                 ':p_product_description' => $productDesc,
                 ':p_category_id'         => $category,
                 ':p_base_price'          => $basePrice,

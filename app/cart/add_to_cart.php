@@ -5,7 +5,7 @@ if(!isset($_SESSION)){
 }
 
 require_once(__DIR__."/../config/Directories.php"); //to handle folder specific path
-include("..\config\DatabaseConnect.php"); //to access database connection
+include("../config/DatabaseConnect.php"); //to access database connection
 
 //force the user to login if not currently logged in
 if(!isset($_SESSION["user_id"])){

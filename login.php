@@ -2,7 +2,7 @@
     <?php 
         session_start();
         require_once(__DIR__."/app/config/Directories.php");
-        require_once(ROOT_DIR."includes\header.php");
+        require_once(ROOT_DIR."includes/header.php");
 
         if(isset($_SESSION["error"]))
         {
@@ -33,7 +33,7 @@
                             </div>
                         <?php   } ?>
 
-                        <form action="app\auth\Login.php" method="POST">
+                        <form action="app/auth/Login.php" method="POST">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>

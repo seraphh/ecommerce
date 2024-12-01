@@ -65,9 +65,13 @@
                             <label for="category" class="form-label">Category</label>
                             <select id="category" class="form-select" name="category">
                                 <option selected>Choose a category</option>
-                                <option value="1">Electronics</option>
-                                <option value="2">Fashion</option>
-                                <option value="3">Home Appliances</option>
+                                <option value="1">Case</option>
+                                <option value="2">CPU</option>
+                                <option value="3">GPU</option>
+                                <option value="4">Motherboard</option>
+                                <option value="5">PSU</option>
+                                <option value="6">RAM</option>
+                                <option value="7">Storage</option>
                                 <!-- Add more categories as needed -->
                             </select>
                         </div>
