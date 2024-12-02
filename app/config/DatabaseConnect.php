@@ -2,10 +2,10 @@
 
 
 class DatabaseConnect {
-    private $host = "localhost";
-    private $database = "ecommerce_zmonteras";
-    private $dbusername = "zmonteras";
-    private $dbpassword = "Zm0nt3ras_2024";
+    private $host = "localhost";               // for local testing
+    private $database = "ecommerce_zmonteras"; // "ecommerce"
+    private $dbusername = "zmonteras";         // "root"
+    private $dbpassword = "Zm0nt3ras_2024";    // ""
     private $charset    = 'utf8mb4';
     private $conn = null;
 

@@ -14,10 +14,10 @@ session_start();
 
             
             // connect database
-            $host = "localhost";
-            $database = "ecommerce_zmonteras";
-            $dbusername = "zmonteras";
-            $dbpassword = "Zm0nt3ras_2024";
+            $host = "localhost";                // for local testing
+            $database = "ecommerce_zmonteras";  // "ecommerce"
+            $dbusername = "zmonteras";          // "root"
+            $dbpassword = "Zm0nt3ras_2024";     // ""
     // insert record
     // validate confirmpassword
 
