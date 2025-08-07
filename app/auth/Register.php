@@ -14,14 +14,14 @@ session_start();
 
             
             // connect database
-            $host = "localhost";                // for local testing
-            $database = "ecommerce_zmonteras";  // "ecommerce"
-            $dbusername = "zmonteras";          // "root"
-            $dbpassword = "Zm0nt3ras_2024";     // ""
+            $host = "sql207.infinityfree.com";  // InfinityFree database host
+            $database = "if0_39652843_ecommerce";  // "ecommerce"
+            $dbusername = "if0_39652843";          // "root"
+            $dbpassword = "thzquyTCexJhp7A";     // ""
     // insert record
     // validate confirmpassword
 
-            $dsn = "mysql: host=$host;dbname=$database;";
+            $dsn = "mysql:host=$host;dbname=$database;";
             try {
                 $conn = new PDO($dsn, $dbusername, $dbpassword);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

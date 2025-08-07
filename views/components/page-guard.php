@@ -6,7 +6,7 @@ if(!isset($_SESSION["username"]) || (!isset($_SESSION["is_admin"]) || $_SESSION[
             <h1 class="display-1 text-danger">401</h1>
             <h2 class="mb-3">Unauthorized Access</h2>
             <p class="lead">Sorry, you are not authorized to view this page.</p>
-            <a href="login.html" class="btn btn-primary">Go to Login</a>
+            <a href="<?php echo BASE_URL; ?>login.php" class="btn btn-primary">Go to Login</a>
         </div>
     </div> 
     

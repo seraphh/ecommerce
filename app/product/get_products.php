@@ -8,7 +8,7 @@
 
     try {
 
-        $sql  = "SELECT * FROM `products` "; //select statement here
+        $sql  = "SELECT * FROM `products` ORDER BY RAND()"; //select statement here with randomization
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $productList = $stmt->fetchAll();

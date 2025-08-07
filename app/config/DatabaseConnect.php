@@ -1,17 +1,24 @@
 <?php 
 
+// private $host = "localhost";
+// private $database = "ecommerce";
+// private $dbusername = "root";
+// private $dbpassword = "";
 
+// private $host = "sql207.infinityfree.com"; 
+// private $database = "if0_39652843_ecommerce"; 
+// private $dbusername = "if0_39652843";         
+// private $dbpassword = "thzquyTCexJhp7A";    
 class DatabaseConnect {
-    private $host = "localhost";               // for local testing
-    private $database = "ecommerce_zmonteras"; // "ecommerce"
-    private $dbusername = "zmonteras";         // "root"
-    private $dbpassword = "Zm0nt3ras_2024";    // ""
+    private $host = "localhost";
+    private $database = "ecommerce";
+    private $dbusername = "root";
+    private $dbpassword = "";   
     private $charset    = 'utf8mb4';
     private $conn = null;
 
-
     public function connectDB(){
-        $dsn = "mysql: host=$this->host;dbname=$this->database;charset=" . $this->charset;
+        $dsn = "mysql:host=$this->host;dbname=$this->database;charset=" . $this->charset;
         try {
             $this->conn = new PDO($dsn, $this->dbusername, $this->dbpassword);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

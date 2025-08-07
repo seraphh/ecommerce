@@ -8,6 +8,7 @@
 
     //this variable will hold product data from db
     $product = [];
+    $related_products = [];
     $id = @$_GET['id'];
     $category = ["1" => "Case", "2" => "CPU", "3" => "GPU", "4" => 
     "Motherboard", "5" => "PSU", "6" => "RAM", "7" => "Storage"];
@@ -20,6 +21,16 @@
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $product = $stmt->fetch();
+
+        // Fetch related products from the same category (excluding current product)
+        if (!empty($product)) {
+            $related_sql = "SELECT * FROM products WHERE category_id = :category_id AND id != :current_id LIMIT 4";
+            $related_stmt = $conn->prepare($related_sql);
+            $related_stmt->bindParam(':category_id', $product['category_id']);
+            $related_stmt->bindParam(':current_id', $id);
+            $related_stmt->execute();
+            $related_products = $related_stmt->fetchAll();
+        }
 
     } catch (PDOException $e) {
         echo "Connection Failed: " . $e->getMessage();
@@ -98,51 +109,31 @@
             </div>
         </div>
 
-        <!-- Related Products (Optional) -->
+        <!-- Related Products -->
         <div class="container my-5">
-            <h3>Related Products</h3>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/200" class="card-img-top" alt="Related Product 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Related Product 1</h5>
-                            <p class="card-text">$30.00</p>
-                            <a href="#" class="btn btn-primary">View Product</a>
+            <h3>Related Products - <?php echo $category[$product["category_id"]]; ?></h3>
+            <?php if (!empty($related_products)): ?>
+                <div class="row">
+                    <?php foreach ($related_products as $related_product): ?>
+                        <div class="col-md-3 mb-4">
+                            <div class="card h-100">
+                                <img src="<?php echo BASE_URL.$related_product["image_url"]; ?>" class="card-img-top" alt="<?php echo htmlspecialchars($related_product["product_name"]); ?>" style="height: 200px; object-fit: cover;">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title"><?php echo htmlspecialchars($related_product["product_name"]); ?></h5>
+                                    <p class="card-text text-warning fw-bold">PHP <?php echo number_format($related_product["unit_price"], 2); ?></p>
+                                    <div class="mt-auto">
+                                        <a href="<?php echo BASE_URL; ?>views/product/product.php?id=<?php echo $related_product["id"]; ?>" class="btn btn-primary">View Product</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/200" class="card-img-top" alt="Related Product 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Related Product 2</h5>
-                            <p class="card-text">$40.00</p>
-                            <a href="#" class="btn btn-primary">View Product</a>
-                        </div>
-                    </div>
+            <?php else: ?>
+                <div class="alert alert-info">
+                    <p>No related products found in the <?php echo $category[$product["category_id"]]; ?> category.</p>
                 </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/200" class="card-img-top" alt="Related Product 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Related Product 3</h5>
-                            <p class="card-text">$35.00</p>
-                            <a href="#" class="btn btn-primary">View Product</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/200" class="card-img-top" alt="Related Product 4">
-                        <div class="card-body">
-                            <h5 class="card-title">Related Product 4</h5>
-                            <p class="card-text">$45.00</p>
-                            <a href="#" class="btn btn-primary">View Product</a>
-                        </div>
-                    </div>
-                </div>  
-            </div>
+            <?php endif; ?>
         </div>
 
     </div> 
@@ -165,7 +156,7 @@
 
 <!-- Footer -->
 <footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2024 MyShop. All rights reserved.</p>
+    <p>&copy; 2024 Z-Commerce. All rights reserved.</p>
     <nav>
         <a href="#" class="text-white">Privacy Policy</a> | 
         <a href="#" class="text-white">Terms & Conditions</a>
